@@ -54,7 +54,8 @@ export default function Home() {
   const router = useRouter();
   const [input, setInput] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
-  const [profileImage, setProfileImage] = useState<string | null>(null);
+  // Use the avatar with background removed from public folder
+  const profileImage = '/bg avatar.png';
 
   const goToChat = (question: string) => {
     router.push(`/chat?query=${encodeURIComponent(question)}`);
@@ -62,38 +63,13 @@ export default function Home() {
 
   useEffect(() => {
     inputRef.current?.focus();
-    
-    // Fetch profile image for InteractiveHero
-    const fetchProfile = async () => {
-      try {
-        const cachedImage = localStorage.getItem('profileImage');
-        if (cachedImage) {
-          setProfileImage(cachedImage);
-        }
-
-        const { data, error } = await supabase
-          .from('profiles')
-          .select('profile_image_url')
-          .single();
-
-        if (error) throw error;
-        if (data?.profile_image_url) {
-          setProfileImage(data.profile_image_url);
-          localStorage.setItem('profileImage', data.profile_image_url);
-        }
-      } catch (error) {
-        console.error('Error fetching profile image:', error);
-      }
-    };
-
-    fetchProfile();
   }, []);
 
   return (
     <div className="relative">
       {/* Interactive Hero Section */}
       <InteractiveHero 
-        avatarSrc={profileImage || '/profile.png'} 
+        avatarSrc={profileImage} 
         avatarAlt="Mohamed Ashraf - Web Developer & AI Automation Specialist" 
       />
       

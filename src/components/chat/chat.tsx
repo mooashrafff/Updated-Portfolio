@@ -74,35 +74,8 @@ interface AvatarProps {
 const Avatar = dynamic<AvatarProps>(
   () =>
     Promise.resolve(({ hasActiveTool, videoRef, isTalking }: AvatarProps) => {
-      const [profileImage, setProfileImage] = useState<string>('/profile.png');
-      
-      // Fetch profile image from Supabase (same logic as home page)
-      useEffect(() => {
-        const fetchProfile = async () => {
-          try {
-            // Check localStorage first (same as home page)
-            const cachedImage = localStorage.getItem('profileImage');
-            if (cachedImage) {
-              setProfileImage(cachedImage);
-            }
-
-            const { data, error } = await supabase
-              .from('profiles')
-              .select('profile_image_url')
-              .single();
-
-            if (error) throw error;
-            if (data?.profile_image_url) {
-              setProfileImage(data.profile_image_url);
-              localStorage.setItem('profileImage', data.profile_image_url);
-            }
-          } catch (error) {
-            console.error('Error fetching profile image:', error);
-          }
-        };
-        
-        fetchProfile();
-      }, []);
+      // Use the same avatar with background removed as home page
+      const profileImage = '/bg avatar.png';
 
       return (
         <div

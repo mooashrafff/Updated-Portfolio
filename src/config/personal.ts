@@ -10,9 +10,9 @@ export const personal = {
 
   // Images / avatars
   avatar: {
-    profileSrc: '/profile.png',
+    profileSrc: '/bg avatar.png',
     squareAvatarSrc: '/avatar.png',
-    fallbackSrc: '/profile.png',
+    fallbackSrc: '/bg avatar.png',
   },
 
   // Branding and SEO
