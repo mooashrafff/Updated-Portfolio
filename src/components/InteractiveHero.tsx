@@ -157,7 +157,6 @@ export default function InteractiveHero({ avatarSrc, avatarAlt }: InteractiveHer
     filter: 'contrast(1.15) saturate(1.2) brightness(1.08)',
     borderRadius: '12px',
     imageRendering: 'auto',
-    WebkitImageRendering: 'auto',
   }}
 />
           </div>
