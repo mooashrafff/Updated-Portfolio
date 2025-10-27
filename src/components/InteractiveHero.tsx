@@ -12,7 +12,8 @@ interface InteractiveHeroProps {
 
 export default function InteractiveHero({ avatarSrc, avatarAlt }: InteractiveHeroProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number | null>(null);
+
   
   const {
     containerRef,
