@@ -94,7 +94,7 @@ export default function Home() {
       {/* Interactive Hero Section */}
       <InteractiveHero 
         avatarSrc={profileImage || '/profile.png'} 
-        avatarAlt="Mohamed Ashraf - Frontend Developer" 
+        avatarAlt="Mohamed Ashraf - Web Developer & AI Automation Specialist" 
       />
       
        {/* Overlay Content */}
