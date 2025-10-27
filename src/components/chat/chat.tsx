@@ -79,7 +79,7 @@ const Avatar = dynamic<AvatarProps>(
 
       return (
         <div
-          className={`flex items-center justify-center rounded-full transition-all duration-300 ${hasActiveTool ? 'h-20 w-20' : 'h-28 w-28'}`}
+          className={`flex items-center justify-center transition-all duration-300 ${hasActiveTool ? 'h-20 w-20' : 'h-28 w-28'}`}
         >
           <div
             className="relative cursor-pointer"
@@ -88,16 +88,19 @@ const Avatar = dynamic<AvatarProps>(
             <img
               src={profileImage}
               alt="Profile"
-              className={`h-full w-full rounded-full object-cover border-2 border-white/20 shadow-lg transition-all duration-300 ${
+              className={`h-full w-full object-contain border-2 border-white/20 shadow-lg transition-all duration-300 ${
                 isTalking ? 'animate-pulse' : ''
               }`}
               style={{
-                animation: isTalking ? 'talk 0.6s ease-in-out infinite alternate' : 'none'
+                animation: isTalking ? 'talk 0.6s ease-in-out infinite alternate' : 'none',
+                filter: 'contrast(1.15) saturate(1.2) brightness(1.08)',
+                borderRadius: '12px',
+                imageRendering: 'auto',
               }}
             />
             {/* Talking indicator overlay */}
             {isTalking && (
-              <div className="absolute inset-0 rounded-full bg-gradient-to-t from-blue-400/20 to-transparent animate-pulse" />
+              <div className="absolute inset-0 rounded-lg bg-gradient-to-t from-blue-400/20 to-transparent animate-pulse" />
             )}
           </div>
         </div>
