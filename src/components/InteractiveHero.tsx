@@ -150,18 +150,16 @@ export default function InteractiveHero({ avatarSrc, avatarAlt }: InteractiveHer
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
           <div className="relative w-full h-full max-w-7xl">
-            <Image
-              src={avatarSrc}
-              alt={avatarAlt}
-              fill
-              className="object-contain drop-shadow-2xl"
-              style={{
-                filter: 'contrast(1.15) saturate(1.2) brightness(1.08)',
-                borderRadius: '12px',
-                imageRendering: 'high-quality',
-                WebkitImageRendering: 'high-quality'
-              }}
-            />
+          <img
+  src={avatarSrc}
+  alt={avatarAlt}
+  style={{
+    filter: 'contrast(1.15) saturate(1.2) brightness(1.08)',
+    borderRadius: '12px',
+    imageRendering: 'auto',
+    WebkitImageRendering: 'auto',
+  }}
+/>
           </div>
         </motion.div>
 
